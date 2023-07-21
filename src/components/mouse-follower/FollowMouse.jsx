@@ -35,7 +35,6 @@ const FollowMouse = () => {
         position: "fixed",
         backgroundColor: "rgba(255, 0, 0, 0.5)",
         borderRadius: "50%",
-        border: "2px solid white",
         pointerEvents: "none",
         left: -5,
         top: -5,

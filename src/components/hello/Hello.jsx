@@ -32,6 +32,7 @@ const Pic = styled.img`
   width: 100%;
   border-radius: 50%;
 `
+
 function Hello() {
   const data = useContext(AppContext)
 
@@ -41,10 +42,16 @@ function Hello() {
     navigateToSection("proyects")
   }
   return (
-    <HelloSection>
+    <HelloSection id='about'>
       <AboutAndPicDiv>
         <AboutDiv>
-          <h1>Lautaro Balda</h1>
+          <h1
+            style={{
+              fontSize: "3rem",
+            }}
+          >
+            Lautaro Balda
+          </h1>
           {language === "es"
             ? `Estudiante argentino, apasionado de la programación y con experiencia en
           el trabajo colaborativo en diferentes áreas. Impulsado por el deseo

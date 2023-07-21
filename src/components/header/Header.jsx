@@ -9,6 +9,7 @@ import {
   NavigationLink,
 } from "../../styled-components/StyledComponents"
 import ThemeSwitch from "../themeSwitch/ThemeSwitch"
+
 const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
@@ -35,15 +36,26 @@ function Header() {
     language,
     handleChangeLanguage,
     handleChangeTheme,
+    navigateToSection,
     bodyColor,
-    bodyBackgroundColor,
     evilBodyBackgroundColor,
     evilBodyColor,
+    theme,
   } = data.data
+
+  const moveToProjects = () => {
+    navigateToSection("proyects")
+  }
+  const moveToAbout = () => {
+    navigateToSection("about")
+  }
   return (
     <StyledHeader>
       <div>
-        <ThemeSwitch onClick={handleChangeTheme} />
+        <ThemeSwitch
+          onClick={handleChangeTheme}
+          defaultChecked={theme == "dark" ? true : false}
+        />
         <LanguageSwitcher
           language={language}
           handleChangeLanguage={handleChangeLanguage}
@@ -53,12 +65,15 @@ function Header() {
       <div>
         <StyledUl>
           <li>
-            <NavigationLink href='#' style={{ color: bodyColor }}>
+            <NavigationLink onClick={moveToAbout} style={{ color: bodyColor }}>
               {language == "es" ? "Info" : "About"}
             </NavigationLink>
           </li>
           <li>
-            <NavigationLink href='#proyects' style={{ color: bodyColor }}>
+            <NavigationLink
+              onClick={moveToProjects}
+              style={{ color: bodyColor }}
+            >
               {language == "es" ? "Proyectos" : "Projects"}
             </NavigationLink>
           </li>
